@@ -28,7 +28,6 @@ This indicates a **moderate class imbalance**, but not severe enough to require 
 ### Data quality observations
 - Some numerical features contain missing values.
 - Categorical features are well-defined but require encoding.
-- `employee_id` is a unique identifier and was excluded from modeling to prevent data leakage.
 
 ### Data processing decisions
 - Schema validation was performed to ensure required columns are present.
@@ -52,6 +51,12 @@ A **Logistic Regression** classifier was selected as the baseline model and impl
 - Fast training and reproducible results
 
 Given the dataset size and structure, Logistic Regression offers an optimal balance between **performance, simplicity, and interpretability**.
+
+### Why no resampling or advanced models
+
+Although the dataset shows moderate class imbalance, the baseline model achieved strong and balanced performance across both classes, with a ROC-AUC of 0.97 and comparable precision and recall. Given these results, resampling techniques such as SMOTE were not applied, as they were unlikely to provide meaningful improvement and could introduce unnecessary complexity or distribution shift.
+
+More complex models (e.g., Random Forests or Gradient Boosting) were also not explored at this stage, since the simpler and more interpretable model already met performance objectives. These approaches are considered as potential future work if requirements evolve.
 
 ### Preprocessing strategy
 - **Numerical features**:
@@ -102,15 +107,14 @@ Performance remains balanced across both classes, indicating that the model does
 - Clear separation of training, evaluation, and inference logic improves maintainability and reliability.
 
 ### Next steps with more time
-- Tune the classification threshold based on business objectives.
-- Perform cross-validation to assess model stability.
-- Analyze feature coefficients to understand drivers of enrollment.
-- Benchmark tree-based models (Random Forest, Gradient Boosting) to evaluate marginal gains.
-- Conduct fairness and bias checks across demographic segments.
-- Define monitoring and retraining strategies for production deployment.
+The following steps would be considered if additional time or business requirements warranted further iteration:
+- **Threshold tuning** to align predictions with business objectives (e.g., prioritizing recall vs. precision).
+- **Cross-validation** to confirm performance stability across multiple data splits.
+- **Feature coefficient analysis** to better understand key drivers of enrollment.
+- **Model benchmarking** against tree-based models to assess whether added complexity yields meaningful gains.
 
 ---
 
 ## Conclusion
 
-This project demonstrates a complete, production-aware machine learning workflow—from data validation and modeling to evaluation and inference—emphasizing clarity, correctness, and maintainability.
+This project delivers an end-to-end machine learning solution for predicting whether an employee will enroll in a voluntary insurance product using demographic and employment data. The final model achieves strong and balanced performance while remaining interpretable and operationally simple, making it suitable as a reliable baseline for real-world enrollment prediction and future iteration.
