@@ -114,6 +114,9 @@ The following steps would be considered if additional time or business requireme
 - **Model benchmarking** against tree-based models to assess whether added complexity yields meaningful gains.
 
 ---
+### 5. Testing and code reliability
+
+A lightweight smoke test was added to validate the end-to-end pipeline. The test verifies that the training process completes successfully on a small synthetic dataset, a model artifact is created, and predictions can be generated from the trained model. This test runs locally using `pytest` and is also executed automatically via GitHub Actions to ensure basic pipeline integrity on every change.
 
 ## Conclusion
 
