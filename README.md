@@ -27,10 +27,12 @@ models/     -> Generated model artifacts
 
 ## How to Run
 
-### 1. Setup
-```bash
+### 1. Setup (Windows PowerShell)
+
+```powershell
 python -m venv .venv
-source .venv/bin/activate
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
