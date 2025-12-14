@@ -20,7 +20,7 @@ The project is structured and commented to clearly demonstrate:
 src/        -> Data processing, training, evaluation logic
 app/        -> FastAPI inference service
 tests/      -> Automated smoke tests
-models/     -> Generated model artifacts (not committed)
+models/     -> Generated model artifacts
 ```
 
 ---
